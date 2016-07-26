@@ -40,6 +40,8 @@ script:
   # post check
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm /sbin/sysctl -e net.ipv4.tcp_tw_recycle'
 
+  - bundle exec rspec
+
   # Test role idempotence.
   - >
     sudo docker exec "$(cat ${container_id})" ansible-playbook /etc/ansible/roles/role_test/tests/test.yml
