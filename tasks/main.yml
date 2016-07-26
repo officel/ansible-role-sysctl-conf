@@ -1,2 +1,11 @@
 ---
 # tasks file for ansible-role-sysctl-conf
+
+- name: /etc/sysctl.conf 
+  lineinfile:
+    dest=/etc/sysctl.conf
+    regexp="^net.ipv4.tcp_tw_recycle"
+    line="net.ipv4.tcp_tw_recycle = 1"
+  tags: [sysctl-conf]
+
+
