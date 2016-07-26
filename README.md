@@ -14,10 +14,7 @@ none.
 Role Variables
 --------------
 
-sysctl_dict are
-
-    sysctl_dict:
-      - { k: net.ipv4.tcp_tw_recycle, v: 1 }
+sysctl_dict see defaults/main.yml
 
 Dependencies
 ------------
@@ -35,7 +32,10 @@ Example Playbook
       or
 
          -{role: officel.sysctl-conf,
-           sysctl_dict:
+           sysctl_dict: [
+             {k: net.ipv4.tcp_tw_recycle, v: 1 },
+             {k: net.ipv4.tcp_tw_reuse,   v: 1 }
+           ]
           }
 
 License
