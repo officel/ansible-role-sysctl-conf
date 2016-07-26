@@ -1,6 +1,10 @@
 ---
 # tasks file for ansible-role-sysctl-conf
 
+- name: touch /etc/sysctl.conf
+  file: path=/etc/sysctl.conf state=touch mode="u=rw,g=r,o=r"
+  tags: [sysctl-conf]
+
 - name: /etc/sysctl.conf 
   lineinfile:
     dest=/etc/sysctl.conf
