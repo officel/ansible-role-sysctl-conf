@@ -12,7 +12,10 @@
     regexp="^{{ item.k }}"
     line="{{ item.k }} = {{ item.v }}"
   with_items: "{{ sysctl_dict }}"
-  when: sysctl_dict is defined
   tags: [sysctl-conf]
 
+- name: sysctl -p
+  shell: sysctl -p
+  ignore_errors: yes
+  tags: [sysctl-conf]
 
