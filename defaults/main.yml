@@ -1,2 +1,7 @@
 ---
 # defaults file for ansible-role-sysctl-conf
+
+sysctl_dict:
+  - { k: net.ipv4.tcp_tw_recycle     , v: 1 }
+  - { k: net.ipv4.tcp_tw_reuse       , v: 1 }
+  - { k: net.ipv4.tcp_fin_timeout    , v: 30 }
