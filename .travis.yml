@@ -39,6 +39,7 @@ script:
 
   # post check
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm /sbin/sysctl -e net.ipv4.tcp_tw_recycle'
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm /bin/cat /etc/sysctl.conf'
 
   - 'env TARGET_CONTAINER_ID="$(cat ${container_id})" bundle exec rspec'
 
