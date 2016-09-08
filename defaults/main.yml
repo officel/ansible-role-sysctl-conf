@@ -9,5 +9,7 @@ sysctl_dict:
   - { k: net.ipv4.tcp_keepalive_probes , v: 2 }
   - { k: net.ipv4.tcp_keepalive_intvl  , v: 3 }
   - { k: net.ipv4.ip_local_port_range  , v: "10240 65535" }
-  - { k: net.core.somaxconn            , v: 8192 }
+  - { k: net.core.somaxconn            , v: 65535 }
+  - { k: net.ipv4.tcp_max_syn_backlog  , v: 65535 }
+  - { k: net.core.netdev_max_backlog   , v: 16384 }
 
