@@ -1,21 +1,11 @@
 ---
 # tasks file for ansible-role-sysctl-conf
 
-- name: touch /etc/sysctl.conf
-  file: path=/etc/sysctl.conf state=touch mode="u=rw,g=r,o=r"
-  changed_when: no
-  tags: [sysctl-conf]
-
 - name: /etc/sysctl.conf 
-  lineinfile:
-    dest=/etc/sysctl.conf
-    regexp="^{{ item.k }}"
-    line="{{ item.k }} = {{ item.v }}"
+  sysctl:
+    name:  "{{ item.k }}"
+    value: "{{ item.v }}"
+    state; present
   with_items: "{{ sysctl_dict }}"
-  tags: [sysctl-conf]
-
-- name: sysctl -p
-  shell: sysctl -p
-  ignore_errors: yes
   tags: [sysctl-conf]
 
