@@ -6,6 +6,7 @@
     name:  "{{ item.k }}"
     value: "{{ item.v }}"
     state: present
+    reload: no
   with_items: "{{ sysctl_dict }}"
   tags: [sysctl-conf]
 
